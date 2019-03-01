@@ -12,7 +12,8 @@ int main()
 	word_solver.displayPath();
 
 	//PAUSE
-	cout << endl << endl;
+	//uncomment lines 16-18 if using Visual Studios
+	/*cout << endl << endl;
 	system("pause;");
-	return 0;
+	return 0;*/
 }
