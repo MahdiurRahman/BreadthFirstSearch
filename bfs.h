@@ -12,28 +12,24 @@ using namespace std;
 class bfs
 {
 public:
-	bfs();
+	bfs() : word_size_{ 4 }, ptr_to_parent_{ nullptr } {};
 	bfs(string file_name);
 	bool loadData(string file_name);
-	vector<word> getPath(string current, string target);
+	vector<string> getPath(string current, string target);
+	void displayPath();
 	
 private:
-	int size = 4;
-	word* ptr_to_parent = nullptr;
-	ifstream infile;
-	vector<word> whole_list;
-	vector<word> que_list;
-	vector<word> path;
+	size_t word_size_ = 4;
+	word* ptr_to_parent_ = nullptr;
+	ifstream infile_;
+	vector<word> whole_list_;
+	vector<word*> queue_;
+	vector<string> path_;
 
-	bool existsInList(string a, string b);
-	void add_similar(string a);
-	void setPointerToWord(string word_);
-	bool is_similar(string a, string b);
-	bool already_qued(string a);
-	void generate_path(word target_found);
-	void displayWhole();
-	void displayQue();
-	void displayPath();
+	bool existInList(string& current, string & target);
+	void addChildrenToQueue(word* front_of_queue);
+	bool isSimilar(string& a, string& b);
+	bool alreadyQueued(string& a);
 
 	void clear();
 };
